@@ -95,7 +95,10 @@ module SeventeenMon
       country: result[0],
       province: result[1],
       city: result[2],
-      carrier: result[4]
+      carrier: result[4],
+	  lat: result[5],
+      lon: result[6],
+      geopoint: "#{result[5]},#{result[6]}"
     }
     end
   end
