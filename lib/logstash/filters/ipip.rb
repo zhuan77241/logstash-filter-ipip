@@ -157,7 +157,6 @@ class LogStash::Filters::IPIP < LogStash::Filters::Base
   # Even if you don't use the `geo\_point` mapping, the `[target][location]` field
   # is still valid GeoJSON.
   config :target, :validate => :string, :default => 'ipip'
-  config :target_field, :validate => :string, :default => 'gpoint'
 
 
   public
@@ -182,9 +181,6 @@ class LogStash::Filters::IPIP < LogStash::Filters::Base
 
     ipip_data.each do |key, value|
       event[@target][key.to_s] = value
-	  if key = "gpoint"
-        event[@target_field] = value
-      end
     end
 
     # filter_matched should go in the last line of our successful code
